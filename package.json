@@ -4,22 +4,23 @@
   "private": true,
   "homepage": "https://tuanpham-dev.github.io/react-invoice-generator/",
   "dependencies": {
-    "@react-pdf/renderer": "^2.0.18",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "date-fns": "^2.16.1",
-    "rc-slider": "9.2.4",
-    "react": "^16.13.1",
-    "react-datepicker": "^3.3.0",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "react-textarea-autosize": "^8.2.0",
-    "typescript": "~3.7.2"
+    "@react-pdf/renderer": "^3.1.14",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.0",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "date-fns": "^2.30.0",
+    "node-sass": "^9.0.0",
+    "rc-slider": "10.4.0",
+    "react": "^18.2.0",
+    "react-datepicker": "^4.21.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "react-textarea-autosize": "^8.5.3",
+    "typescript": "~5.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,10 +47,9 @@
   },
   "devDependencies": {
     "@types/date-fns": "^2.6.0",
-    "@types/rc-slider": "^8.6.5",
-    "@types/react-datepicker": "^3.1.1",
-    "@types/react-textarea-autosize": "^4.3.5",
-    "gh-pages": "^3.1.0",
-    "node-sass": "^4.14.1"
+    "@types/rc-slider": "^9.3.1",
+    "@types/react-datepicker": "^4.19.2",
+    "@types/react-textarea-autosize": "^8.0.0",
+    "gh-pages": "^6.0.0"
   }
 }

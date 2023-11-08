@@ -130,6 +130,7 @@ const EditableFileImage: FC<Props> = ({ className, placeholder, value, width, on
 
           {isEditing && (
             <div ref={widthWrapper} className="image__width-wrapper">
+              {/* @ts-ignore */}
               <Slider min={100} max={250} marks={marks} included={false} step={1} onChange={handleChangeWidth} defaultValue={width || 100} />
             </div>
           )}

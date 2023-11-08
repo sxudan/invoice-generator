@@ -18,6 +18,7 @@ const EditableCalendarInput: FC<Props> = ({ className, value, selected, onChange
       {pdfMode ? (
         <Text style={compose('span ' + (className ? className : ''))}>{value}</Text>
       ) : (
+        // @ts-ignore
         <DatePicker
           className={'input ' + (className ? className : '')}
           selected={selected}
