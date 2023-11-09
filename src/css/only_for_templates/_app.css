@@ -1,6 +1,6 @@
 @import '_variables.css';
 
-.app {
+.invoice-main {
   padding: 44px;
 }
 
@@ -163,12 +163,12 @@
 }
 
 .image__edit {
-  background-image: url('../images/resize.svg');
+  background-image: url('../../images/resize.svg');
   right: 20px;
 }
 
 .image__remove {
-  background-image: url('../images/remove.svg');
+  background-image: url('../../images/remove.svg');
   right: -10px;
 }
 

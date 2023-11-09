@@ -9,6 +9,8 @@ import ReactPDF from "@react-pdf/renderer";
 import env from "react-dotenv";
 import { triggerDownload } from "../utils/download";
 import ColorPalette from "../components/ColorPalette";
+import '../css/main.css'
+
 
 const InvoiceGeneratorPage = () => {
   const savedInvoice = window.localStorage.getItem("invoiceData");
@@ -89,7 +91,7 @@ const InvoiceGeneratorPage = () => {
   }
 
   return (
-    <>
+    <div className="invoice-main">
       <h1 className="center fs-30">Invoice Generator</h1>
       <div style={{ display: "flex", gap: "77px" }}>
         <div style={{ width: "100px" }}></div>
@@ -114,7 +116,7 @@ const InvoiceGeneratorPage = () => {
         </div>
         <div></div>
       </div>
-    </>
+    </div>
   );
 };
 

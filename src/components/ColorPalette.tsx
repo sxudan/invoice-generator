@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import '../css/_checkmark.css'
+import '../css/only_for_templates/_checkmark.css'
 
 type ColorPaletteProps = {
     onSelected?: (color: string) => void
