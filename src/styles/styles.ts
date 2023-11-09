@@ -14,6 +14,10 @@ const styles: CSSClasses = {
     color: colorWhite,
   },
 
+  'center': {
+    textAlign: 'center'
+  },
+
   'bg-dark': {
     backgroundColor: colorDark2,
   },

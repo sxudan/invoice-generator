@@ -1,8 +1,8 @@
-@import '_variables.css';
-@import '_color.css';
-@import '_layout.css';
-@import '_typography.css';
-@import '_spacing.css';
-@import '_text.css';
-@import '_icons.css';
-@import '_app.css';
+@import './only_for_templates/_variables.css';
+@import './only_for_templates/_color.css';
+@import './only_for_templates/_layout.css';
+@import './only_for_templates/_typography.css';
+@import './only_for_templates/_spacing.css';
+@import './only_for_templates/_text.css';
+@import './only_for_templates/_icons.css';
+@import './only_for_templates/_app.css';

@@ -27,9 +27,11 @@ interface Props {
   data?: Invoice
   pdfMode?: boolean
   onChange?: (invoice: Invoice) => void
+  premium?: boolean
+  themeColor?: string
 }
 
-const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
+const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) => {
   const [invoice, setInvoice] = useState<Invoice>(data ? { ...data } : { ...initialInvoice })
   const [subTotal, setSubTotal] = useState<number>()
   const [saleTax, setSaleTax] = useState<number>()
@@ -474,7 +476,12 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
             pdfMode={pdfMode}
           />
         </View>
-
+        
+        {
+          !premium && <View className='watermark center mt-40' pdfMode={pdfMode}>
+            <Text pdfMode={pdfMode}>Powered by InvoiceXYZ</Text>
+          </View>
+        }
         {/* {!pdfMode && <Download data={invoice} />} */}
       </Page>
     </Document>
