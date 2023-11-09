@@ -1,8 +1,11 @@
+@import '_variables.css';
+
+
 body {
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-family-theme);
   font-size: 14px;
   color: #555;
-  background: $background-color;
+  background: var(--background-color);
   padding: 0;
   margin: 0;
 }
@@ -12,14 +15,14 @@ body {
 }
 
 ::placeholder {
-  color: $placeholder-color;
+  color: var(--placeholder-color);
   opacity: 1;
 }
 
 input,
 textarea,
 select {
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-family-theme);
   font-size: 14px;
   color: #555;
   background: transparent;
@@ -32,7 +35,7 @@ select {
 }
 
 button {
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-family-theme);
   font-size: 14px;
   border-radius: 3px;
 }
@@ -47,17 +50,17 @@ button.link {
   align-items: center;
   background: transparent;
   border: 0;
-  color: $color-blue;
+  color: var(--color-blue);
+}
 
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
+button.link:hover,
+button.link:focus {
+  text-decoration: underline;
+}
 
-  &:focus {
-    outline: 1px dotted $color-cyan;
-    opacity: 1;
-  }
+button.link:focus {
+  outline: 1px dotted var(--color-cyan);
+  opacity: 1;
 }
 
 h1 {

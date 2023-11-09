@@ -29,7 +29,6 @@ function App() {
         </div>
         { invoice && <Download data={invoice} />}
       </div>
-
     </div>
   )
 }

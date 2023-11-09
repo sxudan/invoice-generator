@@ -138,9 +138,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange }) => {
 
   return (
     <Document pdfMode={pdfMode}>
-      <Page className="invoice-wrapper" pdfMode={pdfMode}>
-        
-
+      <Page className="invoice-wrapper" pdfMode={pdfMode}>      
         <View className="flex" pdfMode={pdfMode}>
           <View className="w-50" pdfMode={pdfMode}>
             <EditableFileImage

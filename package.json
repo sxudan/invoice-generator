@@ -1,37 +1,38 @@
 {
-  "name": "invoice-generator",
-  "version": "0.2.1",
+  "name": "invoice_builder",
+  "version": "0.1.0",
   "private": true,
-  "homepage": "https://tuanpham-dev.github.io/react-invoice-generator/",
   "dependencies": {
     "@react-pdf/renderer": "^3.1.14",
-    "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/react": "^14.1.0",
-    "@testing-library/user-event": "^14.5.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^29.5.8",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/react-textarea-autosize": "^8.0.0",
     "date-fns": "^2.30.0",
-    "node-sass": "^9.0.0",
-    "rc-slider": "10.4.0",
+    "rc-slider": "^10.4.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-textarea-autosize": "^8.5.3",
-    "typescript": "~5.2.2"
+    "typescript": "^5.2.2",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -48,8 +49,6 @@
   "devDependencies": {
     "@types/date-fns": "^2.6.0",
     "@types/rc-slider": "^9.3.1",
-    "@types/react-datepicker": "^4.19.2",
-    "@types/react-textarea-autosize": "^8.0.0",
-    "gh-pages": "^6.0.0"
+    "@types/react-datepicker": "^4.19.2"
   }
 }
