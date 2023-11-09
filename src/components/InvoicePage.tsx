@@ -28,6 +28,7 @@ interface Props {
   pdfMode?: boolean
   onChange?: (invoice: Invoice) => void
   premium?: boolean
+  themeColor?: string
 }
 
 const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) => {

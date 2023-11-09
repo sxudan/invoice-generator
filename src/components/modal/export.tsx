@@ -1,8 +1,8 @@
-import InvoicePage from "../components/InvoicePage";
-import { Invoice } from "../data/types";
+import InvoicePage from "../InvoicePage";
+import { Invoice } from "../../data/types";
 import ReactPDF from "@react-pdf/renderer";
 import React, { useState } from "react";
-import { triggerDownload } from "../utils/download";
+import { triggerDownload } from "../../utils/download";
 
 type ExportProps = {
   invoice?: Invoice;

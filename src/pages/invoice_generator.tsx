@@ -3,11 +3,12 @@ import { Invoice } from "../data/types";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import React, { useEffect, useState } from "react";
-import Export from "./export";
+import Export from "../components/modal/export";
 import { useSearchParams } from "react-router-dom";
 import ReactPDF from "@react-pdf/renderer";
 import env from "react-dotenv";
 import { triggerDownload } from "../utils/download";
+import ColorPalette from "../components/ColorPalette";
 
 const InvoiceGeneratorPage = () => {
   const savedInvoice = window.localStorage.getItem("invoiceData");
@@ -68,7 +69,7 @@ const InvoiceGeneratorPage = () => {
             if (url && url.length > 0) {
               console.log(url);
               triggerDownload(url, 'invoice.pdf')
-              window.location.href = 'http://localhost:3000/generate-invoice'
+              window.location.href = `${env.URL}/generate-invoice`
             }
           });
         })
@@ -76,15 +77,31 @@ const InvoiceGeneratorPage = () => {
     }
   }, [searchParam]);
 
+  function createThemePalette() {
+    return (
+        <div>
+            <h3>Choose Themes</h3>
+            <ColorPalette onSelected={(color) => {
+              console.log(color)
+            }} />
+        </div>
+    )
+  }
+
   return (
     <>
       <h1 className="center fs-30">Invoice Generator</h1>
-      <div style={{ display: "flex", gap: "24px" }}>
-        <div style={{ width: "200px" }}></div>
-        <div style={{ width: "700px" }}>
+      <div style={{ display: "flex", gap: "77px" }}>
+        <div style={{ width: "100px" }}></div>
+        <div style={{ width: "700px", minWidth: '700px' }}>
           <InvoicePage data={data} onChange={onInvoiceUpdated} />
         </div>
         {/* { invoice && <Download data={invoice} />} */}
+        <div>
+            <h3 className="center">Download Invoice</h3>
+            <hr/>
+            {createThemePalette()}
+            <hr/>
         {invoice && (
           <Popup
             modal
@@ -94,6 +111,7 @@ const InvoiceGeneratorPage = () => {
             <Export invoice={invoice} />
           </Popup>
         )}
+        </div>
         <div></div>
       </div>
     </>

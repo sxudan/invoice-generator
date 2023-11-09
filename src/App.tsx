@@ -9,10 +9,8 @@ function App() {
     <div className='app'>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<></>}>
-        </Route>
-        <Route path='/generate-invoice' element={<InvoiceGeneratorPage />}>
-        </Route>
+        <Route path="/" element={<></>}/>
+        <Route path='/generate-invoice' element={<InvoiceGeneratorPage />}/>
       </Routes>
     </BrowserRouter>
     </div>
