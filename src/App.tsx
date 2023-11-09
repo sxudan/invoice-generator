@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<></>}>
         </Route>
-        <Route path='/generate' element={<InvoiceGeneratorPage />}>
+        <Route path='/generate-invoice' element={<InvoiceGeneratorPage />}>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -68,7 +68,7 @@ const InvoiceGeneratorPage = () => {
             if (url && url.length > 0) {
               console.log(url);
               triggerDownload(url, 'invoice.pdf')
-              window.location.href = 'http://localhost:3000/generate'
+              window.location.href = 'http://localhost:3000/generate-invoice'
             }
           });
         })
