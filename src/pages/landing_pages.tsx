@@ -17,7 +17,7 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 function landing_pages() {
 
-
+    //social media login functions
     const responseGoogle = (response: any) => {
         document.getElementById('googleButton')
 
@@ -27,21 +27,30 @@ function landing_pages() {
     const responseFacebook = (response: any) => {
         console.log(response);
     }
+
+
     return (
 
         <div className='sm:absolute top-0 z-1 h-fit	'>
             <div className='relative flex-col sm:flex sm:flex-row-reverse'>
-                <img className='w-60 m-auto sm:w-1/2  sm:m-0' src={backgroundImage} />
+
+                <img className='relative sm:top-24 md:top-12 w-60 m-auto sm:w-1/2  sm:m-0' src={backgroundImage} />
+
                 <div className='relative flex-col text-center sm:text-left sm:top-24 md:top-40 sm:left-6'>
+
                     <h1 className='font-title-font text-4xl	 md:text-6xl text-secondary-color'>Get Your Invoice Templates</h1>
                     <br />
+
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia vitae soluta eveniet amet molestias .</p>
                     <br />
+
                     <Link to='/generate-invoice'>
                         <button className='py-2.5 px-3.5 w-48 rounded-xl bg-secondary-color text-primary-font-color'>Create Invoice Now</button>
                     </Link>
                     <br />
                     <br />
+
+                    {/* social media buttons */}
                     <div className='flex justify-center sm:flex sm:justify-start'>
                         <GoogleLogin
                             clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
