@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 //images
 import backgroundImage from '../images/landing_page/backgroun_image.jpg'
 import googleIcon from '../images/landing_page/logoGoogle.png'
@@ -8,15 +10,19 @@ import GoogleLogin from 'react-google-login';
 
 
 
-function landing_pages() {
+
+function Landing_pages() {
+
+    const navigate = useNavigate();
 
     //social media login functions
     const responseGoogle = (response: any) => {
         document.getElementById('googleButton')
-
-        console.log(response);
+        navigate("/")
+        console.log('call google app')
+        // console.log(response);
     }
-   
+
 
     return (
 
@@ -42,7 +48,7 @@ function landing_pages() {
                     {/* social media buttons */}
                     <div className='flex justify-center sm:flex sm:justify-start'>
                         <GoogleLogin
-                            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                            clientId="737300273344-r2l627q6l8t8r8hesttbvhv6njolt4ms.apps.googleusercontent.com"
                             render={renderProps => (
                                 <>
 
@@ -55,15 +61,16 @@ function landing_pages() {
                                     </button>
                                 </>
                             )}
-                            buttonText="Login"
+                            buttonText="Login" 
+                            type='button'                           
                             onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
+                            onFailure={responseGoogle}                            
                             cookiePolicy={'single_host_origin'}
                         />
 
-                       <button className='bg-black text-white py-2.5 px-3.5 w-36'>
-                                Log In
-                       </button>
+                        <button className='bg-black text-white py-2.5 px-3.5 w-36'>
+                            Log In
+                        </button>
                     </div>
 
 
@@ -76,4 +83,4 @@ function landing_pages() {
     )
 }
 
-export default landing_pages;
+export default Landing_pages;
