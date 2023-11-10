@@ -4,6 +4,7 @@ import InvoiceGeneratorPage from './features/invoice_generator';
 import PurchaseOrderGeneratorPage from './features/purchase_order_generator';
 import Landing_pages from './features/landing_pages';
 import Navbar from './features/components/navbar';
+import './css/main.css'
 
 function App() {
   

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 //images
 import backgroundImage from '../images/landing_page/backgroun_image.jpg'
 import googleIcon from '../images/landing_page/logoGoogle.png'
-import '../css/main.css'
 // sign in social media
 import GoogleLogin from 'react-google-login';
 
