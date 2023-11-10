@@ -24,7 +24,7 @@ function Landing_pages() {
     }
 
 
-    return (
+    return (        
 
         <div className='sm:absolute top-0 z-1 h-full'>
             <div className='relative flex-col sm:flex sm:flex-row-reverse'>
