@@ -6,7 +6,7 @@ export interface ProductLine {
   rate: string
 }
 
-export interface Invoice {
+export interface Base {
   logo: string
   logoWidth: number
   title: string
@@ -48,6 +48,9 @@ export interface Invoice {
   termLabel: string
   term: string
 }
+
+export interface Invoice extends Base { }
+export interface PurchaseOrder extends Base { }
 
 export interface CSSClasses {
   [key: string]: CSSProperties
