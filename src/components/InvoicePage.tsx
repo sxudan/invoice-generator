@@ -11,9 +11,11 @@ import Document from './Document'
 import Page from './Page'
 import View from './View'
 import Text from './Text'
-import { Font } from '@react-pdf/renderer'
-import Download from './DownloadPDF'
+import { Font, PDFViewer } from '@react-pdf/renderer'
+// import Download from './DownloadPDF'
 import format from 'date-fns/format'
+import { Theme, theme1 } from '../styles/themes'
+import { allCurrencies } from '../data/currencyList'
 
 Font.register({
   family: 'Nunito',
@@ -28,13 +30,14 @@ interface Props {
   pdfMode?: boolean
   onChange?: (invoice: Invoice) => void
   premium?: boolean
-  themeColor?: string
+  theme: Theme
 }
 
-const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) => {
+const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false, theme }) => {
   const [invoice, setInvoice] = useState<Invoice>(data ? { ...data } : { ...initialInvoice })
   const [subTotal, setSubTotal] = useState<number>()
   const [saleTax, setSaleTax] = useState<number>()
+  // const [discount, setDiscount] = useState<number>()
 
   const dateFormat = 'MMM dd, yyyy'
   const invoiceDate = invoice.invoiceDate !== '' ? new Date(invoice.invoiceDate) : new Date()
@@ -126,11 +129,19 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
 
   useEffect(() => {
     const match = invoice.taxLabel.match(/(\d+)%/)
+    // const discountMatch = invoice.discountLabel.match(/(\d+)%/)
     const taxRate = match ? parseFloat(match[1]) : 0
+    // const discountRate = discountMatch ? parseFloat(discountMatch[1]) : 0
+
+    // const disc = subTotal ? (subTotal * discountRate) / 100 : 0
+
+    // const subTotal_disc = Math.max(0, ((subTotal ?? 0) - disc) )
+
     const saleTax = subTotal ? (subTotal * taxRate) / 100 : 0
 
     setSaleTax(saleTax)
-  }, [subTotal, invoice.taxLabel])
+    // setDiscount(disc)
+  }, [subTotal, invoice.taxLabel, invoice.discountLabel])
 
   useEffect(() => {
     if (onChange) {
@@ -138,8 +149,13 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
     }
   }, [onChange, invoice])
 
-  return (
-    <Document pdfMode={pdfMode}>
+  function dim(color: string) {
+    return `${color}20`
+  }
+
+  function body() {
+    return (
+      <Document pdfMode={pdfMode}>
       <Page className="invoice-wrapper" pdfMode={pdfMode}>      
         <View className="flex" pdfMode={pdfMode}>
           <View className="w-50" pdfMode={pdfMode}>
@@ -154,7 +170,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
             />
             <EditableInput
               className="fs-20 bold"
-              placeholder="Your Company"
+              placeholder="Your Company or ABN number"
               value={invoice.companyName}
               onChange={(value) => handleChange('companyName', value)}
               pdfMode={pdfMode}
@@ -189,6 +205,8 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
               className="fs-45 right bold"
               placeholder="Invoice"
               value={invoice.title}
+              // @ts-ignore
+              style={{color: theme.primaryColor}}
               onChange={(value) => handleChange('title', value)}
               pdfMode={pdfMode}
             />
@@ -295,8 +313,9 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
             </View>
           </View>
         </View>
-
-        <View className="mt-30 bg-dark flex" pdfMode={pdfMode}>
+        
+        {/* @ts-ignore */}
+        <View className="mt-30 bg-dark flex" style={{backgroundColor: theme.primaryColor}} pdfMode={pdfMode}>
           <View className="w-48 p-4-8" pdfMode={pdfMode}>
             <EditableInput
               className="white bold"
@@ -405,6 +424,22 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
                 </Text>
               </View>
             </View>
+            {/* Discount */}
+            {/* <View className="flex" pdfMode={pdfMode}>
+              <View className="w-50 p-5" pdfMode={pdfMode}>
+                <EditableInput
+                  value={invoice.discountLabel}
+                  onChange={(value) => handleChange('discountLabel', value)}
+                  pdfMode={pdfMode}
+                />
+              </View>
+              <View className="w-50 p-5" pdfMode={pdfMode}>
+                <Text className="right bold dark" pdfMode={pdfMode}>
+                  {discount?.toFixed(2)}
+                </Text>
+              </View>
+            </View> */}
+            {/* tax */}
             <View className="flex" pdfMode={pdfMode}>
               <View className="w-50 p-5" pdfMode={pdfMode}>
                 <EditableInput
@@ -419,7 +454,8 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
                 </Text>
               </View>
             </View>
-            <View className="flex bg-gray p-5" pdfMode={pdfMode}>
+            {/* @ts-ignore */}
+            <View className="flex p-5" pdfMode={pdfMode} style={{backgroundColor: dim(theme.primaryColor)}}>
               <View className="w-50 p-5" pdfMode={pdfMode}>
                 <EditableInput
                   className="bold"
@@ -429,12 +465,24 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
                 />
               </View>
               <View className="w-50 p-5 flex" pdfMode={pdfMode}>
-                <EditableInput
+                <EditableSelect
+                  className="dark bold right ml-30"
+                  pdfMode={pdfMode}
+                  value={invoice.currency}
+                  onChange={(value) => handleChange('currency', value)}
+                  options={allCurrencies.map((currency) => {
+                    return {
+                      value: currency.symbol,
+                      text: currency.name
+                    }
+                  })}
+                />
+                {/* <EditableInput
                   className="dark bold right ml-30"
                   value={invoice.currency}
                   onChange={(value) => handleChange('currency', value)}
                   pdfMode={pdfMode}
-                />
+                /> */}
                 <Text className="right bold dark w-auto" pdfMode={pdfMode}>
                   {(typeof subTotal !== 'undefined' && typeof saleTax !== 'undefined'
                     ? subTotal + saleTax
@@ -485,6 +533,15 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
         {/* {!pdfMode && <Download data={invoice} />} */}
       </Page>
     </Document>
+    )
+  }
+
+  return (
+    <>
+      {
+        body()
+      }
+    </>
   )
 }
 
