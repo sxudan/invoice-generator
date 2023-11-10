@@ -11,9 +11,10 @@ import Document from './Document'
 import Page from './Page'
 import View from './View'
 import Text from './Text'
-import { Font } from '@react-pdf/renderer'
-import Download from './DownloadPDF'
+import { Font, PDFViewer } from '@react-pdf/renderer'
+// import Download from './DownloadPDF'
 import format from 'date-fns/format'
+import { Theme, theme1 } from '../styles/themes'
 
 Font.register({
   family: 'Nunito',
@@ -28,10 +29,10 @@ interface Props {
   pdfMode?: boolean
   onChange?: (invoice: Invoice) => void
   premium?: boolean
-  themeColor?: string
+  theme: Theme
 }
 
-const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) => {
+const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false, theme }) => {
   const [invoice, setInvoice] = useState<Invoice>(data ? { ...data } : { ...initialInvoice })
   const [subTotal, setSubTotal] = useState<number>()
   const [saleTax, setSaleTax] = useState<number>()
@@ -138,8 +139,13 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
     }
   }, [onChange, invoice])
 
-  return (
-    <Document pdfMode={pdfMode}>
+  function dim(color: string) {
+    return `${color}20`
+  }
+
+  function body() {
+    return (
+      <Document pdfMode={pdfMode}>
       <Page className="invoice-wrapper" pdfMode={pdfMode}>      
         <View className="flex" pdfMode={pdfMode}>
           <View className="w-50" pdfMode={pdfMode}>
@@ -189,6 +195,8 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
               className="fs-45 right bold"
               placeholder="Invoice"
               value={invoice.title}
+              // @ts-ignore
+              style={{color: theme.primaryColor}}
               onChange={(value) => handleChange('title', value)}
               pdfMode={pdfMode}
             />
@@ -295,8 +303,9 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
             </View>
           </View>
         </View>
-
-        <View className="mt-30 bg-dark flex" pdfMode={pdfMode}>
+        
+        {/* @ts-ignore */}
+        <View className="mt-30 bg-dark flex" style={{backgroundColor: theme.primaryColor}} pdfMode={pdfMode}>
           <View className="w-48 p-4-8" pdfMode={pdfMode}>
             <EditableInput
               className="white bold"
@@ -419,7 +428,8 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
                 </Text>
               </View>
             </View>
-            <View className="flex bg-gray p-5" pdfMode={pdfMode}>
+            {/* @ts-ignore */}
+            <View className="flex p-5" pdfMode={pdfMode} style={{backgroundColor: dim(theme.primaryColor)}}>
               <View className="w-50 p-5" pdfMode={pdfMode}>
                 <EditableInput
                   className="bold"
@@ -485,6 +495,15 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false }) =>
         {/* {!pdfMode && <Download data={invoice} />} */}
       </Page>
     </Document>
+    )
+  }
+
+  return (
+    <>
+      {
+        body()
+      }
+    </>
   )
 }
 

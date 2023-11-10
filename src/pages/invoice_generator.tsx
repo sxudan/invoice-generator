@@ -10,21 +10,25 @@ import env from "react-dotenv";
 import { triggerDownload } from "../utils/download";
 import ColorPalette from "../components/ColorPalette";
 import '../css/main.css'
+import { Theme, theme1 } from "../styles/themes";
 
 
 const InvoiceGeneratorPage = () => {
-  const savedInvoice = window.localStorage.getItem("invoiceData");
-  let data = null;
+  
+  // let data = null;
   const [invoice, setInvoice] = useState<Invoice | null>(null);
+  const [theme, setTheme] = useState<Theme>(theme1)
   const [searchParam] = useSearchParams();
 
-  try {
-    if (savedInvoice) {
-      data = JSON.parse(savedInvoice);
-    }
-  } catch (_e) {}
+  // try {
+  //   if (savedInvoice) {
+  //     data = JSON.parse(savedInvoice);
+  //   }
+  // } catch (_e) {}
 
-  const onInvoiceUpdated = (invoice: Invoice) => {
+
+
+  const onInvoiceUpdated = (invoice: Invoice,) => {
     window.localStorage.setItem("invoiceData", JSON.stringify(invoice));
     setInvoice(invoice);
   };
@@ -58,13 +62,48 @@ const InvoiceGeneratorPage = () => {
     return promise;
   }
 
+  function getSavedThemeData(): Theme | null {
+    const savedTheme = window.localStorage.getItem("themeData");
+    if(savedTheme) {
+      return JSON.parse(savedTheme)
+    } else {
+      return null
+    }
+  }
+
+  function getSavedInvoiceData() {
+    const savedInvoice = window.localStorage.getItem("invoiceData");
+   if(savedInvoice) {
+    return JSON.parse(savedInvoice)
+   }
+   return null
+  }
+
+  function loadSaveItems() {
+    const savedInvoice = getSavedInvoiceData()
+    const savedTheme = getSavedThemeData()
+    if(savedInvoice) {
+      setInvoice(savedInvoice)
+    }
+    if(savedTheme) {
+      setTheme(savedTheme)
+    }
+  }
+
+  useEffect(() => {
+    loadSaveItems()
+  }, [])
+
   useEffect(() => {
     const id = searchParam.get("download");
     if (id) {
-      validate(id)
+      const savedInvoice = window.localStorage.getItem("invoiceData");
+      const savedTheme = window.localStorage.getItem("themeData");
+      if(savedInvoice && savedTheme) {
+        validate(id)
         .then(() => {
           const blob = ReactPDF.pdf(
-            <InvoicePage data={invoice!} pdfMode={true} premium={true} />
+            <InvoicePage data={JSON.parse(savedInvoice)} pdfMode={true} premium={true} theme={JSON.parse(savedTheme)}/>
           ).toBlob();
           blob.then((res) => {
             const url = URL.createObjectURL(res);
@@ -76,6 +115,9 @@ const InvoiceGeneratorPage = () => {
           });
         })
         .catch((error) => alert(error));
+      } else {
+        alert('Download failed: No items found')
+      }
     }
   }, [searchParam]);
 
@@ -83,8 +125,9 @@ const InvoiceGeneratorPage = () => {
     return (
         <div>
             <h3>Choose Themes</h3>
-            <ColorPalette onSelected={(color) => {
-              console.log(color)
+            <ColorPalette value={theme} onSelected={(t) => {
+              setTheme(t)
+              window.localStorage.setItem("themeData", JSON.stringify(t))
             }} />
         </div>
     )
@@ -96,7 +139,7 @@ const InvoiceGeneratorPage = () => {
       <div style={{ display: "flex", gap: "77px" }}>
         <div style={{ width: "100px" }}></div>
         <div style={{ width: "700px", minWidth: '700px' }}>
-          <InvoicePage data={data} onChange={onInvoiceUpdated} />
+          <InvoicePage data={invoice!} onChange={onInvoiceUpdated} theme={theme}/>
         </div>
         {/* { invoice && <Download data={invoice} />} */}
         <div>
@@ -110,7 +153,7 @@ const InvoiceGeneratorPage = () => {
             trigger={<button className="download-pdf">Download</button>}
             position="right center"
           >
-            <Export invoice={invoice} />
+            <Export invoice={invoice} theme={theme}/>
           </Popup>
         )}
         </div>
