@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import '../css/only_for_templates/_checkmark.css'
-import { Theme, theme1, theme2, theme3, theme4, theme5 } from '../styles/themes'
+import { Theme, theme1, theme2, theme3, theme4, theme5, theme6 } from '../styles/themes'
 
 type ColorPaletteProps = {
     value: Theme
@@ -10,7 +10,7 @@ type ColorPaletteProps = {
 const ColorPalette = ({ value, onSelected }: ColorPaletteProps) => {
     const [selected, setTheme] = useState(theme1)
     // const colors = ['#000', '#e56e18', '#1d4ab8', '#2f9e85', '#b71e1e']
-    const themes = [theme1, theme2, theme3, theme4, theme5]
+    const themes = [theme1, theme2, theme3, theme4, theme5, theme6]
 
     useEffect(() => {
         setTheme(value)

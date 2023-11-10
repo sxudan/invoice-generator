@@ -28,4 +28,9 @@ const theme5: Theme = {
     secondaryColor: '#fff',
 }
 
-export { theme1, theme2, theme3, theme4, theme5 }
+const theme6: Theme = {
+    primaryColor: '#fc94b1',
+    secondaryColor: '#fff',
+}
+
+export { theme1, theme2, theme3, theme4, theme5, theme6 }
