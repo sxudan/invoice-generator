@@ -6,3 +6,11 @@
 @import './only_for_templates/_text.css';
 @import './only_for_templates/_icons.css';
 @import './only_for_templates/_app.css';
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
+
+/* tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
