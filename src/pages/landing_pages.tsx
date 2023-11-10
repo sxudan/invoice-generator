@@ -3,15 +3,10 @@ import { Link } from "react-router-dom";
 //images
 import backgroundImage from '../images/landing_page/backgroun_image.jpg'
 import googleIcon from '../images/landing_page/logoGoogle.png'
-import facebookLogo from '../images/landing_page/FacebookLogo.png'
 
 
 // sign in social media
 import GoogleLogin from 'react-google-login';
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-
-
-
 
 
 
@@ -23,11 +18,7 @@ function landing_pages() {
 
         console.log(response);
     }
-
-    const responseFacebook = (response: any) => {
-        console.log(response);
-    }
-
+   
 
     return (
 
@@ -57,7 +48,7 @@ function landing_pages() {
                             render={renderProps => (
                                 <>
 
-                                    <button className='bg-black text-white py-2.5 px-3.5 w-auto mr-4'
+                                    <button className='bg-black text-white py-2.5 px-3.5 w-36 mr-4'
                                         onClick={renderProps.onClick} disabled={renderProps.disabled}>
                                         <div className='flex items-center justify-between	'>
                                             <img className='w-3.5 mr-2' src={googleIcon} />
@@ -72,20 +63,9 @@ function landing_pages() {
                             cookiePolicy={'single_host_origin'}
                         />
 
-                        <FacebookLogin
-                            appId="1088597931155576"
-                            autoLoad
-                            callback={responseFacebook}
-                            render={renderProps => (
-                                <button className='bg-black text-white py-2.5 px-3.5 w-32 mr-4 w-auto'
-                                    onClick={renderProps.onClick}>
-                                    <div className='flex items-center justify-between	'>
-                                        <img className='w-3.5 mr-2' src={facebookLogo} />
-                                        <p>Facebook Log In</p>
-                                    </div>
-                                </button>
-                            )}
-                        />
+                       <button className='bg-black text-white py-2.5 px-3.5 w-36'>
+                                Log In
+                       </button>
                     </div>
 
 
