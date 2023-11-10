@@ -15,6 +15,7 @@ import { Font, PDFViewer } from '@react-pdf/renderer'
 // import Download from './DownloadPDF'
 import format from 'date-fns/format'
 import { Theme, theme1 } from '../styles/themes'
+import { allCurrencies } from '../data/currencyList'
 
 Font.register({
   family: 'Nunito',
@@ -464,12 +465,24 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false, them
                 />
               </View>
               <View className="w-50 p-5 flex" pdfMode={pdfMode}>
-                <EditableInput
+                <EditableSelect
+                  className="dark bold right ml-30"
+                  pdfMode={pdfMode}
+                  value={invoice.currency}
+                  onChange={(value) => handleChange('currency', value)}
+                  options={allCurrencies.map((currency) => {
+                    return {
+                      value: currency.symbol,
+                      text: currency.name
+                    }
+                  })}
+                />
+                {/* <EditableInput
                   className="dark bold right ml-30"
                   value={invoice.currency}
                   onChange={(value) => handleChange('currency', value)}
                   pdfMode={pdfMode}
-                />
+                /> */}
                 <Text className="right bold dark w-auto" pdfMode={pdfMode}>
                   {(typeof subTotal !== 'undefined' && typeof saleTax !== 'undefined'
                     ? subTotal + saleTax
