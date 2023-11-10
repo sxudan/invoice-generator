@@ -33,14 +33,14 @@ function Landing_pages() {
 
                 <div className=' h-fit relative flex-col text-center sm:text-left sm:top-24 md:top-40 sm:left-6'>
 
-                    <h1 className='font-title-font text-4xl	 md:text-6xl text-secondary-color'>Get Your Invoice Templates</h1>
+                    <h1 className='font-title-font text-4xl	 md:text-6xl text-secondary-color'>Professional CVs, Invoices, and Purchase Templates.</h1>
                     <br />
 
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia vitae soluta eveniet amet molestias .</p>
+                    <p className='text-xl sm:text-2xl'>Your All-in-One Solution: Build Impressive CVs, Invoices, and Purchase Templates Instantly</p>
                     <br />
 
                     <Link to='/generate-invoice'>
-                        <button className='py-2.5 px-3.5 w-48 rounded-xl bg-secondary-color text-primary-font-color'>Create Invoice Now</button>
+                        <button className='py-2.5 px-3.5 w-48 rounded-xl bg-secondary-color text-primary-font-color'>Create Now</button>
                     </Link>
                     <br />
                     <br />
