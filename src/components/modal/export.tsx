@@ -1,19 +1,21 @@
 import InvoicePage from "../InvoicePage";
 import { Invoice } from "../../data/types";
-import ReactPDF from "@react-pdf/renderer";
+import ReactPDF, { PDFViewer } from "@react-pdf/renderer";
 import React, { useState } from "react";
 import { triggerDownload } from "../../utils/download";
+import { Theme, theme1 } from "../../styles/themes";
 
 type ExportProps = {
   invoice?: Invoice;
+  theme?: Theme
 };
 
-const Export = ({ invoice }: ExportProps) => {
+const Export = ({ invoice, theme = theme1 }: ExportProps) => {
   const [premium, setPremium] = useState(false);
 
   const onDownload = async () => {
     const blob = await ReactPDF.pdf(
-      <InvoicePage data={invoice!} pdfMode={true} premium={false} />
+      <InvoicePage data={invoice!} pdfMode={true} premium={false}  theme={theme}/>
     ).toBlob();
     const url = URL.createObjectURL(blob);
     if (url && url.length > 0) {
@@ -37,6 +39,9 @@ const Export = ({ invoice }: ExportProps) => {
         />
         <label>Remove watermark (only $2.99)</label>
       </div>
+      <PDFViewer showToolbar={false} style={{margin: '20px auto', display: 'flex', height: '200px'}}>
+        <InvoicePage data={invoice!} pdfMode={true} premium={false}  theme={theme} />
+      </PDFViewer>
       <div>
         {!premium && (
           <button
