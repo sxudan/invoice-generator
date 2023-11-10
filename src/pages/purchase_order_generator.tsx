@@ -74,7 +74,7 @@ const PurchaseOrderGeneratorPage = () => {
             if (url && url.length > 0) {
               console.log(url);
               triggerDownload(url, 'invoice.pdf')
-              window.location.href = `${window.location.host}/generate-purchase-order`
+              window.location.href = `generate-purchase-order`
             }
           });
         })
