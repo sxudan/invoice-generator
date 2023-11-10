@@ -65,6 +65,22 @@ window.env = {
   "npm_package_browserslist_development_0": "last 1 chrome version",
   "npm_package_browserslist_development_1": "last 1 firefox version",
   "npm_package_browserslist_development_2": "last 1 safari version",
+<<<<<<< HEAD
+=======
+  "npm_execpath": "/usr/local/lib/node_modules/yarn/bin/yarn.js",
+  "npm_package_dependencies_rc_slider": "^10.4.0",
+  "PATH": "/var/folders/gj/bxnhxpjn0dl89lcf34c8qqp00000gn/T/yarn--1699595950621-0.3626679851163057:/Users/xkal/Downloads/invoice-generator/node_modules/.bin:/Users/xkal/.config/yarn/link/node_modules/.bin:/Users/xkal/.nvm/versions/node/v18.17.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/xkal/.nvm/versions/node/v18.17.1/lib/node_modules/npm/bin/node-gyp-bin:/Users/xkal/.nvm/versions/node/v18.17.1/bin/node_modules/npm/bin/node-gyp-bin:/Users/xkal/.nvm/versions/node/v18.17.1/bin:/Users/xkal/Downloads/flutter/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/xkal/Downloads/flutter/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/xkal/Library/Android/sdk/emulator:/Users/xkal/Library/Android/sdk/platform-tools:/Users/xkal/Library/Android/sdk/emulator:/Users/xkal/Library/Android/sdk/platform-tools",
+  "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"start\"],\"original\":[\"start\"]}",
+  "LaunchInstanceID": "A79A5A45-CBCA-419F-8BE4-E3D97462C033",
+  "_": "/Users/xkal/Downloads/invoice-generator/node_modules/.bin/react-dotenv",
+  "__CFBundleIdentifier": "com.microsoft.VSCode",
+  "NVM_NODEJS_ORG_MIRROR": "https://nodejs.org/dist",
+  "USER_ZDOTDIR": "/Users/xkal",
+  "npm_package_browserslist_production_1": "not dead",
+  "npm_package_dependencies_typescript": "^5.2.2",
+  "npm_package_dependencies__types_jest": "^29.5.8",
+  "PWD": "/Users/xkal/Downloads/invoice-generator",
+>>>>>>> d9f8dbdd77ed16753eeb64c25b58ab75a9d7738e
   "npm_package_browserslist_production_0": ">0.2%",
   "npm_package_browserslist_production_1": "not dead",
   "npm_package_browserslist_production_2": "not op_mini all",
