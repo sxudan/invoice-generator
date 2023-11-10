@@ -30,7 +30,8 @@ const ColorPalette = ({ value, onSelected }: ColorPaletteProps) => {
 const styles = {
     container: {
         display: 'flex',
-        margin: '16px 0'
+        margin: '16px 0',
+        justifyContent: 'center'
     }
 }
 

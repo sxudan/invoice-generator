@@ -124,7 +124,7 @@ const InvoiceGeneratorPage = () => {
   function createThemePalette() {
     return (
         <div>
-            <h3>Choose Themes</h3>
+            <h3 className="center">Choose Themes</h3>
             <ColorPalette value={theme} onSelected={(t) => {
               setTheme(t)
               window.localStorage.setItem("themeData", JSON.stringify(t))
@@ -135,7 +135,7 @@ const InvoiceGeneratorPage = () => {
 
   return (
     <div className="invoice-main">
-      <h1 className="center fs-30">Invoice Generator</h1>
+      {/* <h1 className="center fs-30">Invoice Generator</h1> */}
       <div style={{ display: "flex", gap: "77px" }}>
         <div style={{ width: "100px" }}></div>
         <div style={{ width: "700px", minWidth: '700px' }}>
@@ -143,14 +143,14 @@ const InvoiceGeneratorPage = () => {
         </div>
         {/* { invoice && <Download data={invoice} />} */}
         <div>
-            <h3 className="center">Download Invoice</h3>
+            <h1 className="center">Download Invoice</h1>
             <hr/>
             {createThemePalette()}
             <hr/>
         {invoice && (
           <Popup
             modal
-            trigger={<button className="download-pdf">Download</button>}
+            trigger={<button className="download-pdf mt-40">Download</button>}
             position="right center"
           >
             <Export invoice={invoice} theme={theme}/>
