@@ -36,7 +36,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false, them
   const [invoice, setInvoice] = useState<Invoice>(data ? { ...data } : { ...initialInvoice })
   const [subTotal, setSubTotal] = useState<number>()
   const [saleTax, setSaleTax] = useState<number>()
-  const [discount, setDiscount] = useState<number>()
+  // const [discount, setDiscount] = useState<number>()
 
   const dateFormat = 'MMM dd, yyyy'
   const invoiceDate = invoice.invoiceDate !== '' ? new Date(invoice.invoiceDate) : new Date()
@@ -128,18 +128,18 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false, them
 
   useEffect(() => {
     const match = invoice.taxLabel.match(/(\d+)%/)
-    const discountMatch = invoice.discountLabel.match(/(\d+)%/)
+    // const discountMatch = invoice.discountLabel.match(/(\d+)%/)
     const taxRate = match ? parseFloat(match[1]) : 0
-    const discountRate = discountMatch ? parseFloat(discountMatch[1]) : 0
+    // const discountRate = discountMatch ? parseFloat(discountMatch[1]) : 0
 
-    const disc = subTotal ? (subTotal * discountRate) / 100 : 0
+    // const disc = subTotal ? (subTotal * discountRate) / 100 : 0
 
-    const subTotal_disc = Math.max(0, ((subTotal ?? 0) - disc) )
+    // const subTotal_disc = Math.max(0, ((subTotal ?? 0) - disc) )
 
-    const saleTax = subTotal_disc ? (subTotal_disc * taxRate) / 100 : 0
+    const saleTax = subTotal ? (subTotal * taxRate) / 100 : 0
 
     setSaleTax(saleTax)
-    setDiscount(disc)
+    // setDiscount(disc)
   }, [subTotal, invoice.taxLabel, invoice.discountLabel])
 
   useEffect(() => {
@@ -424,7 +424,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false, them
               </View>
             </View>
             {/* Discount */}
-            <View className="flex" pdfMode={pdfMode}>
+            {/* <View className="flex" pdfMode={pdfMode}>
               <View className="w-50 p-5" pdfMode={pdfMode}>
                 <EditableInput
                   value={invoice.discountLabel}
@@ -437,7 +437,7 @@ const InvoicePage: FC<Props> = ({ data, pdfMode, onChange, premium = false, them
                   {discount?.toFixed(2)}
                 </Text>
               </View>
-            </View>
+            </View> */}
             {/* tax */}
             <View className="flex" pdfMode={pdfMode}>
               <View className="w-50 p-5" pdfMode={pdfMode}>
