@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ExportType } from '../components/modal/export'
+import { ExportType } from '../BuilderComponent/modal/export'
 import React from 'react'
 
 
