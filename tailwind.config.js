@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  // content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ['./src/features/landing_pages.tsx', './src/features/components/navbar.tsx'],
+  blocklist: ['./src/BuilderComponent/**/*', './src/features/invoice_generator.tsx'],
   theme: {
     extend: {     
       colors: {

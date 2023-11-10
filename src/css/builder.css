@@ -1,0 +1,8 @@
+@import './only_for_templates/_variables.css';
+@import './only_for_templates/_color.css';
+@import './only_for_templates/_layout.css';
+@import './only_for_templates/_typography.css';
+@import './only_for_templates/_spacing.css';
+@import './only_for_templates/_text.css';
+@import './only_for_templates/_icons.css';
+@import './only_for_templates/_app.css';

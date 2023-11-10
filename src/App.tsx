@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import InvoiceGeneratorPage from './pages/invoice_generator';
-import PurchaseOrderGeneratorPage from './pages/purchase_order_generator';
-import Landing_pages from './pages/landing_pages';
-import Navbar from './components/navbar';
+import InvoiceGeneratorPage from './features/invoice_generator';
+import PurchaseOrderGeneratorPage from './features/purchase_order_generator';
+import Landing_pages from './features/landing_pages';
+import Navbar from './features/components/navbar';
 
 function App() {
   
