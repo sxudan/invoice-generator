@@ -45,6 +45,10 @@ textarea {
   background: transparent;
 }
 
+.resize-both {
+  resize: both;
+}
+
 button.link {
   display: flex;
   align-items: center;

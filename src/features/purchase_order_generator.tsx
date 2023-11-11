@@ -1,16 +1,16 @@
-import InvoicePage from "../BuilderComponent/InvoicePage";
+import InvoicePage from "../creator-components/InvoicePage";
 import { Invoice, PurchaseOrder } from "../data/types";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import React, { useCallback, useEffect, useState } from "react";
-import Export from "../BuilderComponent/modal/export";
+import Export from "../creator-components/modal/export";
 import { useSearchParams } from "react-router-dom";
 import ReactPDF from "@react-pdf/renderer";
 import { triggerDownload, validate } from "../utils/download";
-import ColorPalette from "../BuilderComponent/ColorPalette";
+import ColorPalette from "../creator-components/ColorPalette";
 import '../css/builder.css'
 import { Theme, theme1 } from "../styles/themes";
-import PurchaseOrderPage from "../BuilderComponent/PurchaseOrderPage";
+import PurchaseOrderPage from "../creator-components/PurchaseOrderPage";
 import Menu from "./components/Menu";
 
 
@@ -124,18 +124,16 @@ const PurchaseOrderGeneratorPage = () => {
             <h1 className="center fs-30">Download Invoice</h1>
             <hr />
             {createThemePalette()}
-            <hr />
-            {invoice && (
-              <Popup
-                modal
-                trigger={<button className="download-pdf mt-40">Download</button>}
-                position="right center"
-              >
-                <Export type="PurchaseOrder" invoice={invoice} theme={theme} />
-              </Popup>
-            )}
-          </div>
-          <div></div>
+        {invoice && (
+          <Popup
+            modal
+            trigger={<button className="download-pdf mt-40">Download</button>}
+            position="right center"
+          >
+            <Export type="PurchaseOrder" po={invoice} theme={theme}/>
+          </Popup>
+        )}
+            <hr/>
         </div>
       </div>
     </>

@@ -1,11 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
-  content: [
-    "./src/features/landing_pages.tsx",
-    "./src/features/components/navbar.tsx",
-    "./src/features/components/Menu.tsx",
-  ],
+  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
@@ -24,5 +20,10 @@ module.exports = {
       },
     },
   },
+  corePlugins: {
+    preflight: false,
+  },
   plugins: [],
-};
+  important: true,
+}
+
