@@ -1,11 +1,11 @@
 .line-item {
-    width: 18px;
-    background: #000;
-    margin-left: 10px;
-    height: 18px;
-    border-radius: 50%;
-    display: inline-block;
-    text-align: center;
-    cursor: pointer;
-    color: white;
+  width: 18px;
+  background: #000;
+  margin-left: 10px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  color: white;
 }

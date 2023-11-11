@@ -1,4 +1,4 @@
-@import '_variables.css';
+@import "_variables.css";
 
 .invoice-main {
   padding: 44px;
@@ -12,7 +12,9 @@
   padding: 4px 12px 4px 0;
   margin-bottom: 1px;
   border: 1px dotted transparent;
-  transition: background 0.1s ease-in-out, border-color 0.2s ease-in-out;
+  transition:
+    background 0.1s ease-in-out,
+    border-color 0.2s ease-in-out;
 }
 
 .input:hover,
@@ -106,7 +108,9 @@
   height: 100px;
   padding: 0;
   outline: none;
-  transition: height 0.2s, font-size 0.2s;
+  transition:
+    height 0.2s,
+    font-size 0.2s;
 }
 
 .image__upload:focus,
@@ -152,7 +156,9 @@
   top: -10px;
   text-indent: -9999em;
   opacity: 0;
-  transition: opacity 0.2s, background-color 0.2s;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
 }
 
 .image__edit:hover,
@@ -170,12 +176,12 @@
 }
 
 .image__edit {
-  background-image: url('../../images/resize.svg');
+  background-image: url("../../images/resize.svg");
   right: 20px;
 }
 
 .image__remove {
-  background-image: url('../../images/remove.svg');
+  background-image: url("../../images/remove.svg");
   right: -10px;
 }
 

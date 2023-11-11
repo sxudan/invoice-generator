@@ -1,18 +1,19 @@
 .parent {
-    position:relative;
+  position: relative;
 }
-.fullname, span{
-    top:0;
-    position:absolute;
-    width:120px;
+.fullname,
+span {
+  top: 0;
+  position: absolute;
+  width: 120px;
 }
-span{
-    top:2px;
-    left:2px;
-    z-index:1;
-    overflow:hidden;
+span {
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+  overflow: hidden;
 }
-.fullname{
-    background:transparent;
-    z-index:2;
+.fullname {
+  background: transparent;
+  z-index: 2;
 }

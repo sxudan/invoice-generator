@@ -1,4 +1,4 @@
-@import '_variables.css';
+@import "_variables.css";
 
 .icon {
   display: inline-block;
@@ -15,7 +15,7 @@
 
 .icon-remove::before,
 .icon-remove::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 2px;
   height: 10px;
@@ -34,7 +34,7 @@
 
 .icon-add::before,
 .icon-add::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 2px;
   height: 10px;

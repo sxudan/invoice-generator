@@ -1,4 +1,4 @@
-@import '_variables.css';
+@import "_variables.css";
 
 .block {
   display: block !important;
@@ -69,7 +69,7 @@
 }
 
 .stepper-thumb {
-  content: '';
+  content: "";
   height: 8px;
   width: 8px;
   position: absolute;

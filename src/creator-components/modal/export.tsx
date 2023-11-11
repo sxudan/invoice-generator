@@ -8,35 +8,47 @@ import PurchaseOrderPage from "../PurchaseOrderPage";
 import useCreateBuyLink from "../../hooks/useCreateBuyLink";
 import ResumeBuilder from "../ResumeBuilder";
 
-export type ExportType = 'Invoice' | 'PurchaseOrder' | 'Resume'
+export type ExportType = "Invoice" | "PurchaseOrder" | "Resume";
 
 type ExportProps = {
-  invoice?: Invoice
-  po?: PurchaseOrder
-  resume?: Resume
-  theme?: Theme
-  type: ExportType
+  invoice?: Invoice;
+  po?: PurchaseOrder;
+  resume?: Resume;
+  theme?: Theme;
+  type: ExportType;
 };
 
 const Export = ({ invoice, po, resume, type, theme = theme1 }: ExportProps) => {
   const [premium, setPremium] = useState(false);
-  const buyButton = useCreateBuyLink(type)
+  const buyButton = useCreateBuyLink(type);
 
   function getDoc() {
-    switch(type) {
-      case 'PurchaseOrder':
-        return <PurchaseOrderPage data={po!} pdfMode={true} premium={false} theme={theme}/>
-      case 'Resume':
-        return <ResumeBuilder pdfMode={true} resumeData={resume} />
+    switch (type) {
+      case "PurchaseOrder":
+        return (
+          <PurchaseOrderPage
+            data={po!}
+            pdfMode={true}
+            premium={false}
+            theme={theme}
+          />
+        );
+      case "Resume":
+        return <ResumeBuilder pdfMode={true} resumeData={resume} />;
       default:
-        return <InvoicePage data={invoice!} pdfMode={true} premium={false}  theme={theme}/>
+        return (
+          <InvoicePage
+            data={invoice!}
+            pdfMode={true}
+            premium={false}
+            theme={theme}
+          />
+        );
     }
   }
 
   const onDownload = async () => {
-    const blob = await ReactPDF.pdf(
-      getDoc()
-    ).toBlob();
+    const blob = await ReactPDF.pdf(getDoc()).toBlob();
     const url = URL.createObjectURL(blob);
     if (url && url.length > 0) {
       triggerDownload(url, "invoice.pdf");
@@ -45,7 +57,7 @@ const Export = ({ invoice, po, resume, type, theme = theme1 }: ExportProps) => {
 
   return (
     <div style={styles.container}>
-      <h1>Download your {type == 'Invoice' ? 'invoice' : 'purchase order'}</h1>
+      <h1>Download your {type == "Invoice" ? "invoice" : "purchase order"}</h1>
 
       <div>
         <input
@@ -59,7 +71,10 @@ const Export = ({ invoice, po, resume, type, theme = theme1 }: ExportProps) => {
         />
         <label>Remove watermark (only $2.99)</label>
       </div>
-      <PDFViewer showToolbar={false} style={{margin: '20px auto', display: 'flex', height: '200px'}}>
+      <PDFViewer
+        showToolbar={false}
+        style={{ margin: "20px auto", display: "flex", height: "200px" }}
+      >
         {getDoc()}
       </PDFViewer>
       <div>
@@ -72,9 +87,7 @@ const Export = ({ invoice, po, resume, type, theme = theme1 }: ExportProps) => {
             Download
           </button>
         )}
-        {premium && (
-          buyButton
-        )}
+        {premium && buyButton}
       </div>
     </div>
   );
