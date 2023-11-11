@@ -185,3 +185,20 @@
 .watermark span {
   color: #888;
 }
+
+.border-right {
+  border-right: 1px solid black;
+  padding-right: 24px;
+}
+
+.border-left {
+  border-left: 1px solid black;
+  padding-left: 44px;
+  padding-bottom: 24px;
+  margin-left: 8px;
+}
+
+.border-top {
+  border-top: 1px solid black;
+  padding-top: 24px;
+}

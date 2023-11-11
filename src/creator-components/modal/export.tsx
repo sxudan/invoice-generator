@@ -1,28 +1,33 @@
 import InvoicePage from "../InvoicePage";
-import { Invoice } from "../../data/types";
+import { Base, Invoice, PurchaseOrder, Resume } from "../../data/types";
 import ReactPDF, { PDFViewer } from "@react-pdf/renderer";
 import React, { useState } from "react";
 import { triggerDownload } from "../../utils/download";
 import { Theme, theme1 } from "../../styles/themes";
 import PurchaseOrderPage from "../PurchaseOrderPage";
 import useCreateBuyLink from "../../hooks/useCreateBuyLink";
+import ResumeBuilder from "../ResumeBuilder";
 
-export type ExportType = 'Invoice' | 'PurchaseOrder'
+export type ExportType = 'Invoice' | 'PurchaseOrder' | 'Resume'
 
 type ExportProps = {
-  invoice?: Invoice;
+  invoice?: Invoice
+  po?: PurchaseOrder
+  resume?: Resume
   theme?: Theme
   type: ExportType
 };
 
-const Export = ({ invoice, type, theme = theme1 }: ExportProps) => {
+const Export = ({ invoice, po, resume, type, theme = theme1 }: ExportProps) => {
   const [premium, setPremium] = useState(false);
   const buyButton = useCreateBuyLink(type)
 
   function getDoc() {
     switch(type) {
       case 'PurchaseOrder':
-        return <PurchaseOrderPage data={invoice!} pdfMode={true} premium={false} theme={theme}/>
+        return <PurchaseOrderPage data={po!} pdfMode={true} premium={false} theme={theme}/>
+      case 'Resume':
+        return <ResumeBuilder pdfMode={true} resumeData={resume} />
       default:
         return <InvoicePage data={invoice!} pdfMode={true} premium={false}  theme={theme}/>
     }

@@ -5,7 +5,7 @@ import backgroundImage from '../images/landing_page/backgroun_image.jpg'
 import googleIcon from '../images/landing_page/logoGoogle.png'
 // sign in social media
 import GoogleLogin from 'react-google-login';
-
+import '../css/main.css'
 
 
 function landing_pages() {
@@ -20,36 +20,36 @@ function landing_pages() {
 
     return (
 
-        <div className='sm:absolute top-0 z-1 h-fit	'>
-            <div className='relative flex-col sm:flex sm:flex-row-reverse'>
+        <div className='tw-sm:absolute tw-top-0 tw-z-1 tw-h-fit	'>
+            <div className='tw-relative tw-flex-col tw-sm:flex tw-sm:flex-row-reverse'>
 
-                <img className='relative sm:top-24 md:top-12 w-60 m-auto sm:w-1/2  sm:m-0' src={backgroundImage} />
+                <img className='tw-relative tw-sm:top-24 tw-md:top-12 w-60 tw-m-auto tw-sm:w-1/2  tw-sm:m-0' src={backgroundImage} />
 
-                <div className='relative flex-col text-center sm:text-left sm:top-24 md:top-40 sm:left-6'>
+                <div className='tw-relative tw-flex-col tw-text-center tw-sm:text-left tw-sm:top-24 tw-md:top-40 tw-sm:left-6'>
 
-                    <h1 className='font-title-font text-4xl	 md:text-6xl text-secondary-color'>Get Your Invoice Templates</h1>
+                    <h1 className='tw-font-title-font tw-text-4xl tw-md:text-6xl tw-text-secondary-color'>Get Your Invoice Templates</h1>
                     <br />
 
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia vitae soluta eveniet amet molestias .</p>
                     <br />
 
                     <Link to='/generate-invoice'>
-                        <button className='py-2.5 px-3.5 w-48 rounded-xl bg-secondary-color text-primary-font-color'>Create Invoice Now</button>
+                        <button className='tw-py-2.5 tw-px-3.5 tw-w-48 tw-rounded-xl tw-bg-secondary-color tw-text-primary-font-color'>Create Invoice Now</button>
                     </Link>
                     <br />
                     <br />
 
                     {/* social media buttons */}
-                    <div className='flex justify-center sm:flex sm:justify-start'>
+                    <div className='tw-flex tw-justify-center tw-sm:flex tw-sm:justify-start'>
                         <GoogleLogin
                             clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
                             render={renderProps => (
                                 <>
 
-                                    <button className='bg-black text-white py-2.5 px-3.5 w-36 mr-4'
+                                    <button className='tw-bg-black tw-text-white tw-py-2.5 tw-px-3.5 tw-w-36 tw-mr-4'
                                         onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                                        <div className='flex items-center justify-between	'>
-                                            <img className='w-3.5 mr-2' src={googleIcon} />
+                                        <div className='tw-flex tw-items-center tw-justify-between	'>
+                                            <img className='tw-w-3.5 tw-mr-2' src={googleIcon} />
                                             <p>Google Log In</p>
                                         </div>
                                     </button>
@@ -61,7 +61,7 @@ function landing_pages() {
                             cookiePolicy={'single_host_origin'}
                         />
 
-                       <button className='bg-black text-white py-2.5 px-3.5 w-36'>
+                       <button className='tw-bg-black tw-text-white tw-py-2.5 tw-px-3.5 tw-w-36'>
                                 Log In
                        </button>
                     </div>

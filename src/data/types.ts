@@ -49,6 +49,45 @@ export interface Base {
   term: string
 }
 
+export type ExperienceItem = {
+  position: string
+  company: string
+  start: string
+  end: string
+  workItems: string[]
+}
+
+export type InstitutionItem = {
+  degreeName: string
+  collegeName: string
+  start: string
+  end: string
+}
+
+export type ContactType = {
+  phone: string
+  email: string
+  address: string
+  website: string
+}
+
+export type Resume = {
+  fullname: string
+  designation: string
+  description: string
+  image: string
+  imageSize: number
+  institutions: InstitutionItem[]
+  experience: ExperienceItem[]
+  contact: ContactType
+  skills: string[]
+  titles: Section
+}
+
+export type Section = {
+  [key: string]: string
+}
+
 export interface Invoice extends Base { }
 export interface PurchaseOrder extends Base { }
 

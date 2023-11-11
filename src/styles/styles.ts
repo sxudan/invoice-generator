@@ -121,6 +121,10 @@ const styles: CSSClasses = {
     fontWeight: 'bold',
   },
 
+  'fs-16': {
+    fontSize: '16px'
+  },
+
   'fs-20': {
     fontSize: '20px',
   },
@@ -150,6 +154,26 @@ const styles: CSSClasses = {
 
   logo: {
     display: 'block',
+  },
+
+  'letter-spacing': {
+    letterSpacing: '3px'
+  },
+
+  'border-right': {
+    borderRight: '1px solid black',
+    paddingRight: '24px'
+  },
+  'border-left': {
+    borderLeft: '1px solid black',
+    paddingLeft: '44px',
+    paddingBottom: '24px',
+    marginLeft: '8px'
+  },
+
+  'border-top': {
+    borderTop: '1px solid black',
+    paddingTop: '24px'
   }
 }
 

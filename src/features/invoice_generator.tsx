@@ -1,13 +1,13 @@
-import InvoicePage from "../BuilderComponent/InvoicePage";
+import InvoicePage from "../creator-components/InvoicePage";
 import { Invoice } from "../data/types";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import React, { useCallback, useEffect, useState } from "react";
-import Export from "../BuilderComponent/modal/export";
+import Export from "../creator-components/modal/export";
 import { useSearchParams } from "react-router-dom";
 import ReactPDF from "@react-pdf/renderer";
 import { triggerDownload, validate } from "../utils/download";
-import ColorPalette from "../BuilderComponent/ColorPalette";
+import ColorPalette from "../creator-components/ColorPalette";
 import '../css/builder.css'
 import { Theme, theme1 } from "../styles/themes";
 
