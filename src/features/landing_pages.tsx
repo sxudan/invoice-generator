@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 //images
 import backgroundImage from '../images/landing_page/backgroun_image.jpg'
 import googleIcon from '../images/landing_page/logoGoogle.png'
-import logoInvoice from '../images/landing_page/logoInvoice.png'
+import logoInvoice from'../images/landing_page/logoInvoice.png'
 // sign in social media
 import GoogleLogin from 'react-google-login';
 
