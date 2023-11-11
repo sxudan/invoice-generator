@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from 'react'
 import Slider from 'rc-slider'
-import { Image } from '@react-pdf/renderer'
+import ReactPDF, { Image } from '@react-pdf/renderer'
 import useOnClickOutside from '../hooks/useOnClickOutside'
 import compose from '../styles/compose'
 import 'rc-slider/assets/index.css'
@@ -13,9 +13,11 @@ interface Props {
   onChangeImage?: (value: string) => void
   onChangeWidth?: (value: number) => void
   pdfMode?: boolean
+  styles?: ReactPDF.Styles
+  rounded?: boolean
 }
 
-const EditableFileImage: FC<Props> = ({ className, placeholder, value, width, onChangeImage, onChangeWidth, pdfMode }) => {
+const EditableFileImage: FC<Props> = ({ className, placeholder, value, width, onChangeImage, onChangeWidth, pdfMode, styles, rounded }) => {
   const fileInput = useRef<HTMLInputElement>(null)
   const widthWrapper = useRef<HTMLDivElement>(null)
   const [isEditing, setIsEditing] = useState<boolean>(false)
@@ -76,7 +78,7 @@ const EditableFileImage: FC<Props> = ({ className, placeholder, value, width, on
     if (value) {
       return (
         <Image
-          style={{...compose(`image ${className ? className : ''}`), maxWidth: width, width: width, height: 'auto'}}
+          style={{...compose(`image ${className ? className : ''} ${rounded ? 'rounded': ''}`), maxWidth: width, width: width, height: rounded ? width : 'auto', ...styles}}
           src={value}
         />
       )
@@ -86,7 +88,7 @@ const EditableFileImage: FC<Props> = ({ className, placeholder, value, width, on
   }
 
   return (
-    <div className={`image ${value ? 'mb-5' : ''} ${className ? className : ''}`}>
+    <div className={`image ${value ? 'mb-5' : ''} ${className ? className : ''}`} style={styles}>
       {!value ? (
         <button
           type="button"
@@ -99,9 +101,9 @@ const EditableFileImage: FC<Props> = ({ className, placeholder, value, width, on
         <>
           <img
             src={value}
-            className="image__img"
+            className={`image__img ${rounded ? 'rounded': ''}`}
             alt={placeholder}
-            style={{ maxWidth: width || 100}}
+            style={{ maxWidth: width || 100, ...rounded ? {width: width, height: width} : {}}}
           />
 
           <button

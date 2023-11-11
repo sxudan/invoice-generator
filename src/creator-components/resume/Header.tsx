@@ -4,6 +4,7 @@ import EditableInput from "../EditableInput";
 import HStack from "../layout/HStack";
 import FullNameEditableInput from "../FullNameEditableInput";
 import EditableFileImage from "../EditableFileImage";
+import ReactPDF from "@react-pdf/renderer";
 
 type HeaderProps = {
   pdfMode?: boolean;
@@ -12,9 +13,11 @@ type HeaderProps = {
   image: string
   size: number
   onChange?: (fullname: string, designation: string, image: string, size: number) => void
+  styles?: ReactPDF.Styles
+  classname?: string
 };
 
-const Header = ({ pdfMode, fullname, designation,image,size, onChange }: HeaderProps) => {
+const Header = ({ pdfMode, fullname, designation,image,size, onChange, styles, classname }: HeaderProps) => {
 
   const [customName, setCustomName] = useState(fullname)
   const [customDesignation, setCustomDesignation] = useState(designation)
@@ -28,8 +31,9 @@ const Header = ({ pdfMode, fullname, designation,image,size, onChange }: HeaderP
   }, [customName, customDesignation, customImage, size])
 
   return (
-    <View pdfMode={pdfMode}>
-      <HStack pdfMode={pdfMode}>
+    <View pdfMode={pdfMode} style={styles} className={classname}>
+      {/* @ts-ignore */}
+      <HStack pdfMode={pdfMode} style={{padding: '40px 40px'}}>
       {/* @ts-ignore */}
         <View pdfMode={pdfMode} style={{width: '80%'}}>
           <View className="w-100"  pdfMode={pdfMode}>
@@ -55,6 +59,9 @@ const Header = ({ pdfMode, fullname, designation,image,size, onChange }: HeaderP
               onChangeImage={(value) => {
                 setCustomImage(value)
               }}
+              rounded
+              // @ts-ignore
+              styles={{position: 'absolute', right: `${customSize/2}px`, bottom: `-${customSize/2}px`}}
               onChangeWidth={(value) => {
                 setCustomSize(value)
               }}

@@ -85,3 +85,8 @@
   border-left: 1px solid #ccc;
   padding-left: 22px;
 }
+
+.rounded {
+  border-radius: 100%;
+  object-fit: cover;
+}

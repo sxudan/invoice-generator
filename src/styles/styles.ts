@@ -192,6 +192,11 @@ const styles: CSSClasses = {
     position: 'relative',
     borderLeft: '1px solid #ccc',
     paddingLeft: '22px'
+  },
+
+  'rounded': {
+    borderRadius: '100%',
+    objectFit: 'cover'
   }
 }
 

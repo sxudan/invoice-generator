@@ -13,6 +13,7 @@ import View from "./View";
 import Contact from "./resume/Contact";
 import initialResumeData from "../data/initialResumeData";
 import Text from "./Text";
+import { Font } from "@react-pdf/renderer";
 
 type ResumeBuilderProps = {
     pdfMode?: boolean
@@ -20,6 +21,26 @@ type ResumeBuilderProps = {
     onChange?: (data: Resume) => void
     premium?: boolean
 }
+
+Font.register({
+    family: 'Open Sans',
+    src: `https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf`,
+  });
+  
+  Font.register({
+    family: 'Lato',
+    src: `https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf`,
+  });
+  
+  Font.register({
+    family: 'Lato Italic',
+    src: `https://fonts.gstatic.com/s/lato/v16/S6u8w4BMUTPHjxsAXC-v.ttf`,
+  });
+  
+  Font.register({
+    family: 'Lato Bold',
+    src: `https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHA.ttf`,
+  });
 
 const ResumeBuilder = ({pdfMode, resumeData, onChange, premium}: ResumeBuilderProps) => {
 
@@ -39,8 +60,9 @@ const ResumeBuilder = ({pdfMode, resumeData, onChange, premium}: ResumeBuilderPr
 
     return (
         <Document pdfMode={pdfMode} >
-            <Page className="invoice-wrapper" pdfMode={pdfMode}> 
-                <Header pdfMode={pdfMode} size={resume.imageSize} fullname={resume.fullname} designation={resume.designation} image={resume.image} onChange={(name, designation, image, size) => {
+            <Page className="wrapper-base" pdfMode={pdfMode}> 
+            {/* @ts-ignore */}
+                <Header styles={{backgroundColor: '#F5F5F5'}} pdfMode={pdfMode} size={resume.imageSize} fullname={resume.fullname} designation={resume.designation} image={resume.image} onChange={(name, designation, image, size) => {
                     setResume({
                         ...resume,
                         fullname: name,
@@ -51,8 +73,10 @@ const ResumeBuilder = ({pdfMode, resumeData, onChange, premium}: ResumeBuilderPr
                 }}
                 />
 
-                <Spacer pdfMode={pdfMode} h="32px"/>
+                <Spacer pdfMode={pdfMode} h={`${resume.imageSize / 2}px`}/>
 
+                {/* @ts-ignore */}
+                <View style={{position: 'relative', padding: '0 40px'}} pdfMode={pdfMode}>
                 <HStack pdfMode={pdfMode} spacing={24}>
                     {/* @ts-ignore */}
                     <Contact data={resume.contact} className="w-40" pdfMode={pdfMode} style={{flex: 1}} onChange={(contact) => {
@@ -111,6 +135,10 @@ const ResumeBuilder = ({pdfMode, resumeData, onChange, premium}: ResumeBuilderPr
                         })
                     }}/>
                 </HStack>
+                    
+                </View>
+
+                
                 {
           !premium && <View className='watermark center mt-40' pdfMode={pdfMode}>
                 <Text pdfMode={pdfMode}>Powered by InvoiceXYZ</Text>

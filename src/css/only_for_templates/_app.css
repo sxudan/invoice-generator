@@ -41,6 +41,12 @@
   box-shadow: 0 0 17px 0 rgba(16, 40, 73, 0.09);
 }
 
+.wrapper-base {
+  position: relative;
+  background: #fff;
+  padding: 40px 0;
+}
+
 .download-pdf {
   position: relative;
   width: 250px;
@@ -53,6 +59,8 @@
   font-size: 14px;
   text-align: center;
   background-color: DodgerBlue;
+  display: block;
+  margin: auto;
 }
 
 .download-pdf.loading {
@@ -95,7 +103,7 @@
   border: 2px dashed var(--placeholder-color);
   display: block;
   width: 100px;
-  height: 20px;
+  height: 100px;
   padding: 0;
   outline: none;
   transition: height 0.2s, font-size 0.2s;

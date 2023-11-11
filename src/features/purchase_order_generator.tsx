@@ -3,7 +3,7 @@ import { Invoice, PurchaseOrder } from "../data/types";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import React, { useCallback, useEffect, useState } from "react";
-import Export from "../creator-components/modal/export";
+import Export from "../creator-components/modal/Export";
 import { useSearchParams } from "react-router-dom";
 import ReactPDF from "@react-pdf/renderer";
 import { triggerDownload, validate } from "../utils/download";
