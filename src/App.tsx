@@ -6,17 +6,17 @@ import Landing_pages from './features/landing_pages';
 import './css/main.css'
 
 function App() {
-  
+
 
   return (
     <div className='app'>
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing_pages/>}/>
-        <Route path='/generate-invoice' element={<InvoiceGeneratorPage />}/>
-        <Route path='/generate-purchase-order' element={<PurchaseOrderGeneratorPage />}/>
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing_pages />} />
+          <Route path='/generate-invoice' element={<InvoiceGeneratorPage />} />
+          <Route path='/generate-purchase-order' element={<PurchaseOrderGeneratorPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

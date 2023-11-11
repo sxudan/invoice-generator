@@ -16,10 +16,10 @@ function Menu() {
             {!show ?
                 <div className='w-full fixed top-0  mb-2.5 flex items-center justify-between h-fit bg-secondary-color'>
 
-                    <button  onClick={() => setShow(true)}>
+                    <button onClick={() => setShow(true)}>
                         <img className=' h-14' src={menuIcon} />
                     </button>
-                    
+
                     <Link to='/'>
                         <img className='  h-14' src={logoInvoice} />
                     </Link>
