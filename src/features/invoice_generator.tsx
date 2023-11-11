@@ -107,12 +107,12 @@ const InvoiceGeneratorPage = () => {
         <div style={{ display: "flex", gap: "77px" }}>
           <div style={{ width: "100px" }}></div>
 
-          <div style={{ width: "700px", minWidth: '700px'}}>
+          <div style={{ width: "700px", minWidth: '700px', marginTop:'20px'}}>
             <InvoicePage data={invoice!} onChange={onInvoiceUpdated} theme={theme} />
           </div>
           
           {/* { invoice && <Download data={invoice} />} */}
-          <div  style={{ marginTop:'10px' , zIndex:'2'}}>
+          <div  style={{ marginTop:'20px' , zIndex:'2'}}>
             <h1 className="center fs-30">Download Invoice</h1>
             <hr />
             {createThemePalette()}

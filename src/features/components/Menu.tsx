@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import menuIcon from '../../images/landing_page/menuIcon.png'
 import closeIcon from '../../images/landing_page/close-button.png'
 import logoInvoice from '../../images/landing_page/logoInvoice.png'
+import googleIcon from '../../images/landing_page/logoGoogle.png'
 
 
 function Menu() {
@@ -13,20 +14,31 @@ function Menu() {
 
     return (
         <>
-            {!show ?
-                <div className='w-full fixed top-0  mb-2.5 flex items-center justify-between h-fit bg-secondary-color'>
 
-                    <button onClick={() => setShow(true)}>
-                        <img className=' h-14' src={menuIcon} />
-                    </button>
+            <div className='fixed w-full top-0 z-[2] mb-2.5 mr-3 border-inherit	border-solid	border-2	 flex items-center justify-between h-fit bg-white-color'>
 
-                    <Link to='/'>
-                        <img className='  h-14' src={logoInvoice} />
-                    </Link>
-                </div> : ""
-            }
+                <button onClick={() => setShow(true)}>
+                    <img className=' h-14' src={menuIcon} />
+                </button>
 
-            {show ? <div className='fixed top-0 z-[2] sm: w-48 h-full  bg-secondary-color'>
+                    {/* social media buttons */}
+                    <div className='flex justify-center sm:flex sm:justify-start'>            
+                    <button className='bg-black text-white py-2.5 px-3.5 w-36 mr-4'
+                                         >
+                                            <div className='flex items-center justify-between	'>
+                                                <img className='w-3.5 mr-2' src={googleIcon} />
+                                                <p>Google Log In</p>
+                                            </div>
+                                        </button>              
+
+                            <button className='bg-secondary-color text-white py-2.5 px-3.5 w-36'>
+                                Log In
+                            </button>
+                        </div>
+            </div>
+
+
+            {show ? <div className='fixed top-0 z-[2] sm: w-48 h-full  bg-black-color'>
 
                 <div className='flex justify-end mr-2 mt-2 items-center'>
                     {/* <img className='  h-14 sm:h-14' src={logoInvoice} /> */}
