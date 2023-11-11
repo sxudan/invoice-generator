@@ -1,96 +1,96 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 //images
-import backgroundImage from '../images/landing_page/backgroun_image.jpg'
-import googleIcon from '../images/landing_page/logoGoogle.png'
-import logoInvoice from '../images/landing_page/logoInvoice.png'
+import backgroundImage from "../images/landing_page/backgroun_image.jpg";
+import googleIcon from "../images/landing_page/logoGoogle.png";
+import logoInvoice from "../images/landing_page/logoInvoice.png";
 // sign in social media
-import GoogleLogin from 'react-google-login';
-
+import GoogleLogin from "react-google-login";
 
 
 
 function Landing_pages() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  //social media login functions
+  const responseGoogle = (response: any) => {
+    document.getElementById("googleButton");
+    navigate("/");
+    console.log("call google app");
+    // console.log(response);
+  };
 
-    //social media login functions
-    const responseGoogle = (response: any) => {
-        document.getElementById('googleButton')
-        navigate("/")
-        console.log('call google app')
-        // console.log(response);
-    }
+  return (
+    <>
+      <a href="/">
+        <div className="relative left-6 w-20 py-1.5 px-1.5  sm:py-2.5 sm:px-2.5 sm:w-24 rounded-br-xl rounded-bl-xl mb-2 text-primary-font-color bg-secondary-color">
+          <img className="z-2 m-auto h-14 sm:h-14" src={logoInvoice} />
+        </div>
+      </a>
 
+      <div className="sm:absolute top-0 z-1 h-full">
+        <div className="relative flex-col sm:flex sm:flex-row-reverse">
+          <img
+            className="relative sm:top-24 md:top-12 w-60 m-auto sm:w-1/2  sm:m-0"
+            src={backgroundImage}
+          />
 
-    return (
-        <>
-            <a href='/'>
-                <div className='relative left-6 w-20 py-1.5 px-1.5  sm:py-2.5 sm:px-2.5 sm:w-24 rounded-br-xl rounded-bl-xl mb-2 text-primary-font-color bg-secondary-color'>
-                    <img className='z-2 m-auto h-14 sm:h-14' src={logoInvoice} />
-                </div>
-            </a>
+          <div className=" h-fit relative flex-col text-center sm:text-left sm:top-24 md:top-40 sm:left-6">
+            <h1 className="font-title-font text-4xl	 md:text-6xl text-secondary-color">
+              Professional CVs, Invoices, and Purchase Templates.
+            </h1>
+            <br />
 
-            <div className='sm:absolute top-0 z-1 h-full'>
-                <div className='relative flex-col sm:flex sm:flex-row-reverse'>
+            <p className="text-xl sm:text-2xl">
+              Your All-in-One Solution: Build Impressive CVs, Invoices, and
+              Purchase Templates Instantly
+            </p>
+            <br />
 
-                    <img className='relative sm:top-24 md:top-12 w-60 m-auto sm:w-1/2  sm:m-0' src={backgroundImage} />
+            <Link to="/generate-invoice">
+              <button className="py-2.5 px-3.5 w-48 rounded-xl bg-secondary-color text-primary-font-color">
+                Create Now
+              </button>
+            </Link>
+            <br />
+            <br />
 
-                    <div className=' h-fit relative flex-col text-center sm:text-left sm:top-24 md:top-40 sm:left-6'>
+            {/* social media buttons */}
+            <div className="flex justify-center sm:flex sm:justify-start">
+              <GoogleLogin
+                clientId="737300273344-r2l627q6l8t8r8hesttbvhv6njolt4ms.apps.googleusercontent.com"
+                render={(renderProps) => (
+                  <>
+                    <button
+                      className="bg-black text-white py-2.5 px-3.5 w-36 mr-4"
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      <div className="flex items-center justify-between	">
+                        <img className="w-3.5 mr-2" src={googleIcon} />
+                        <p>Google Log In</p>
+                      </div>
+                    </button>
+                  </>
+                )}
+                buttonText="Login"
+                type="button"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={"single_host_origin"}
+              />
 
-                        <h1 className='font-title-font text-4xl	 md:text-6xl text-secondary-color'>Professional CVs, Invoices, and Purchase Templates.</h1>
-                        <br />
-
-                        <p className='text-xl sm:text-2xl'>Your All-in-One Solution: Build Impressive CVs, Invoices, and Purchase Templates Instantly</p>
-                        <br />
-
-                        <Link to='/generate-invoice'>
-                            <button className='py-2.5 px-3.5 w-48 rounded-xl bg-secondary-color text-primary-font-color'>Create Now</button>
-                        </Link>
-                        <br />
-                        <br />
-
-                        {/* social media buttons */}
-                        <div className='flex justify-center sm:flex sm:justify-start'>
-                            <GoogleLogin
-                                clientId="737300273344-r2l627q6l8t8r8hesttbvhv6njolt4ms.apps.googleusercontent.com"
-                                render={renderProps => (
-                                    <>
-
-                                        <button className='bg-black text-white py-2.5 px-3.5 w-36 mr-4'
-                                            onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                                            <div className='flex items-center justify-between	'>
-                                                <img className='w-3.5 mr-2' src={googleIcon} />
-                                                <p>Google Log In</p>
-                                            </div>
-                                        </button>
-                                    </>
-                                )}
-                                buttonText="Login"
-                                type='button'
-                                onSuccess={responseGoogle}
-                                onFailure={responseGoogle}
-                                cookiePolicy={'single_host_origin'}
-                            />
-
-                            <button className='bg-black text-white py-2.5 px-3.5 w-36'>
-                                Log In
-                            </button>
-                        </div>
-
-
-                    </div>
-
-                </div>
-
+              <button className="bg-black text-white py-2.5 px-3.5 w-36">
+                Log In
+              </button>
             </div>
-
-        </>
-
-
-    )
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Landing_pages;

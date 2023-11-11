@@ -10,7 +10,7 @@ import { triggerDownload, validate } from "../utils/download";
 import ColorPalette from "../creator-components/ColorPalette";
 import '../css/builder.css'
 import { Theme, theme1 } from "../styles/themes";
-import Menu from "./components/Menu";
+import Menu from "../components/Menu";
 
 
 const InvoiceGeneratorPage = () => {
@@ -100,8 +100,7 @@ const InvoiceGeneratorPage = () => {
 
   return (
     <>
-      <Menu />
-
+      <Menu/>
       <div className="invoice-main">
         {/* <h1 className="center fs-30">Invoice Generator</h1> */}
         <div style={{ display: "flex", gap: "77px" }}>

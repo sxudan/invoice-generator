@@ -24,6 +24,7 @@ module.exports = {
     preflight: false,
   },
   plugins: [],
+  prefix: 'tw-',
   important: true,
 }
 
