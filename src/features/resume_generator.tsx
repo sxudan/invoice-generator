@@ -20,17 +20,18 @@ const ResumeGeneratorPage = () => {
         
         <div className="invoice-main">
             <HStack spacing={77}>
-                <div style={{ width: "70%", minWidth: '700px' }}>
+                <div style={{ width: "100px" }}></div>
+                <div style={{ width: "800px", minWidth: '800px' }}>
                 <ResumeBuilder onChange={(resume) => {
                     setResume(resume)
                     window.localStorage.setItem('resumeData', JSON.stringify(resume))
                 }}/>
                 </div>
-                <div style={{width: "30%"}}>
-                    <h1 className="center fs-30">Download Invoice</h1>
+                <div style={{}}>
+                    <h1 className="center fs-30">Download Resume</h1>
                     <hr/>
                     {/* {createThemePalette()} */}
-                    <hr/>
+                    {/* <hr/> */}
                 {(
                 <Popup
                     modal

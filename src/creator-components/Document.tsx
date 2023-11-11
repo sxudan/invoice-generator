@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Document: FC<Props> = ({ pdfMode, children }) => {
-  return <>{pdfMode ? <PdfDocument>{children}</PdfDocument> : <>{children}</>}</>
+  return <>{pdfMode ? <PdfDocument author='Sudan Suwal'>{children}</PdfDocument> : <>{children}</>}</>
 }
 
 export default Document

@@ -16,6 +16,7 @@ type CompanyProps = {
   onChange?: (experiences: ExperienceItem[]) => void;
   className?: string
   experiences: ExperienceItem[]
+  enableStepper?: boolean
 };
 
 type ExperienceProps = {
@@ -24,9 +25,10 @@ type ExperienceProps = {
   className?: string
   title: string
   experiences: ExperienceItem[]
+  enableStepper?: boolean
 };
 
-const Company = ({ pdfMode, onChange, className, experiences }: CompanyProps) => {
+const Company = ({ pdfMode, onChange, className, experiences, enableStepper }: CompanyProps) => {
 
   const [customExperiences, setCustomExperiences] = useState(experiences)
 
@@ -47,26 +49,35 @@ const Company = ({ pdfMode, onChange, className, experiences }: CompanyProps) =>
   }
 
   return (
-    <View pdfMode={pdfMode} className={className}>
+    // @ts-ignore
+    <View pdfMode={pdfMode} className={className} >
       
         {
           customExperiences.map((experience, index) => (
-              <View pdfMode={pdfMode}>
-                {!pdfMode && (
-                        <button
-                        className="link row__remove mb-10"
-                        aria-label="Remove Row"
-                        title="Remove Row"
-                        onClick={() => handleRemove(index)}
-                        >
-                        <span className="icon icon-remove bg-red"></span>
-                        </button>
-                    )}
-                <EditableTextarea placeholder="Software Developer" className="bold fs-16" pdfMode={pdfMode} value={experience.position} onChange={(value)=> {
-                  const insts = Array.from(customExperiences)
-                  insts[index].position = value
-                  setCustomExperiences(insts)
-                }}/>
+              <View pdfMode={pdfMode} className={enableStepper? "stepper" : ''}>
+                {
+                  enableStepper &&  <View pdfMode={pdfMode} className="stepper-thumb">
+                  
+                  </View>
+                }
+                
+                <HStack crossAxisAlignment="center">
+                  <EditableTextarea placeholder="Software Developer" className="bold fs-16" pdfMode={pdfMode} value={experience.position} onChange={(value)=> {
+                    const insts = Array.from(customExperiences)
+                    insts[index].position = value
+                    setCustomExperiences(insts)
+                  }}/>
+                  {!pdfMode && (
+                          <button
+                          className="link row__remove mb-10"
+                          aria-label="Remove Row"
+                          title="Remove Row"
+                          onClick={() => handleRemove(index)}
+                          >
+                          <span className="icon icon-remove bg-red"></span>
+                          </button>
+                      )}
+                </HStack>
                 <EditableTextarea placeholder="Microsoft" pdfMode={pdfMode} value={experience.company} onChange={(value)=> {
                   const insts = Array.from(customExperiences)
                   insts[index].company = value
@@ -105,7 +116,7 @@ const Company = ({ pdfMode, onChange, className, experiences }: CompanyProps) =>
   );
 };
 
-const Experience = ({ pdfMode, onChange,title, className, experiences }: ExperienceProps) => {
+const Experience = ({ pdfMode, onChange,title, className, experiences, enableStepper }: ExperienceProps) => {
   const [customTitle, setCustomTitle] = useState(title)
   const [customExperiences, setCustomExperiences] = useState(experiences)
 
@@ -131,7 +142,7 @@ const Experience = ({ pdfMode, onChange,title, className, experiences }: Experie
           setCustomTitle(value)
         }}/>
         <Spacer pdfMode={pdfMode} h="8px"/>
-        <Company pdfMode={pdfMode} experiences={customExperiences} onChange={(value) => {
+        <Company enableStepper={enableStepper} pdfMode={pdfMode} experiences={customExperiences} onChange={(value) => {
           setCustomExperiences(value)
         }}/>
         {!pdfMode && (

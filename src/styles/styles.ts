@@ -174,6 +174,24 @@ const styles: CSSClasses = {
   'border-top': {
     borderTop: '1px solid black',
     paddingTop: '24px'
+  },
+
+  'stepper-thumb': {
+    content: '',
+    height: '8px',
+    width: '8px',
+    position: 'absolute',
+    left: '-4px',
+    marginTop: '8px',
+    border: '1px solid #888',
+    backgroundColor: '#888',
+    borderRadius: '100%'
+  },
+  
+  'stepper': {
+    position: 'relative',
+    borderLeft: '1px solid #ccc',
+    paddingLeft: '22px'
   }
 }
 

@@ -38,7 +38,7 @@ const ResumeBuilder = ({pdfMode, resumeData, onChange, premium}: ResumeBuilderPr
     }, [resumeData])
 
     return (
-        <Document pdfMode={pdfMode}>
+        <Document pdfMode={pdfMode} >
             <Page className="invoice-wrapper" pdfMode={pdfMode}> 
                 <Header pdfMode={pdfMode} size={resume.imageSize} fullname={resume.fullname} designation={resume.designation} image={resume.image} onChange={(name, designation, image, size) => {
                     setResume({
@@ -100,7 +100,7 @@ const ResumeBuilder = ({pdfMode, resumeData, onChange, premium}: ResumeBuilderPr
                             })
                         }}/>
                     </View>
-                    <Experience pdfMode={pdfMode} title={resume.titles['experience']} className="w-60 border-left" experiences={resume.experience} onChange={(title, data) => {
+                    <Experience enableStepper={true} pdfMode={pdfMode} title={resume.titles['experience']} className="w-60 border-left" experiences={resume.experience} onChange={(title, data) => {
                         setResume({
                             ...resume,
                             experience: data,
