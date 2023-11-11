@@ -1,45 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import menuIcon from '../../images/landing_page/menuIcon.png'
+import closeIcon from '../../images/landing_page/close-button.png'
 import logoInvoice from '../../images/landing_page/logoInvoice.png'
-
-import { useNavigate } from "react-router-dom";
-
 
 
 function Menu() {
 
-    const navigate = useNavigate();
 
-    console.log('menu')
+    const [show, setShow] = useState(true)
 
-    const testing = () => {
-        console.log('testing button')
-    }
 
     return (
-        <div className='fixed top-0  w-48 h-full  bg-secondary-color'>
+        <>
+            {!show ?
+                <div className='w-full fixed top-0  mb-2.5 flex items-center justify-between h-fit bg-secondary-color'>
 
-            <div className='w-20 py-1.5 px-1.5  sm:py-2.5 sm:px-2.5 sm:w-24 rounded-br-xl rounded-bl-xl mb-2 text-primary-font-color bg-secondary-color'>
-                <img className='z-2  h-14 sm:h-14' src={logoInvoice} />
-            </div>
+                    <button  onClick={() => setShow(true)}>
+                        <img className=' h-14' src={menuIcon} />
+                    </button>
+                    
+                    <Link to='/'>
+                        <img className='  h-14' src={logoInvoice} />
+                    </Link>
+                </div> : ""
+            }
+
+            {show ? <div className='fixed top-0 z-[2] sm: w-48 h-full  bg-secondary-color'>
+
+                <div className='flex justify-end mr-2 mt-2 items-center'>
+                    {/* <img className='  h-14 sm:h-14' src={logoInvoice} /> */}
+                    <button onClick={() => setShow(false)}>
+                        <img className='h-8' src={closeIcon} />
+                    </button>
+
+                </div>
 
 
-            <ul className='text-white w-4/5	 ml-6 flex flex-col'>
-                <h1 className='text-white text-left w-fit text-2xl'>Templates</h1>
+                <ul className='text-white w-4/5	 ml-6 flex flex-col'>
+                    <h1 className='text-white text-left w-fit text-2xl'>Templates</h1>
 
-                <Link to='/generate-invoice'>
-                    <li>Invoice</li>
-                </Link>
+                    <Link to='/generate-invoice'>
+                        <li>Invoice</li>
+                    </Link>
 
-                <Link to='/generate-purchase-order'>
-                    <li>Purchase Order</li>
-                </Link>
+                    <Link to='/generate-purchase-order'>
+                        <li><button onClick={() => console.log('testing')}>Purchase Order</button></li>
+                    </Link>
 
-                <Link to=''>
-                    <li>Resume CV</li>
-                </Link>
-            </ul>
-        </div>
+                    <Link to=''>
+                        <li>Resume CV</li>
+                    </Link>
+                </ul>
+            </div> : ""}
+
+        </>
     );
 }
 
