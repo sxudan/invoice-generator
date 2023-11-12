@@ -69,7 +69,7 @@ const Export = ({ invoice, po, resume, type, theme = theme1 }: ExportProps) => {
             setPremium(!premium);
           }}
         />
-        <label>Remove watermark (only $2.99)</label>
+        <label>Remove watermark (only $0.99)</label>
       </div>
       <PDFViewer
         showToolbar={false}

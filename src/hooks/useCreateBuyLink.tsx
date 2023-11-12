@@ -21,7 +21,7 @@ const useCreateBuyLink = (type: ExportType) => {
 
   return (
     <a style={styles.button} href={url} type="button" className="download-pdf">
-      Pay $2.99
+      Pay $0.99
     </a>
   );
 };
