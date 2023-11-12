@@ -1,7 +1,7 @@
 import { Resume } from "./types";
 
 const initialResumeData: Resume = {
-  fullname: "Sudan Suwal",
+  fullname: "Karl Johnson",
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quod sunt autem dolor vel, doloremque tenetur modi accusantium amet mollitia voluptatem, soluta saepe adipisci. Voluptas, blanditiis magni! Commodi, incidunt maiores.",
   image: "",
@@ -11,13 +11,13 @@ const initialResumeData: Resume = {
   institutions: [
     {
       degreeName: "Master of Information Technology",
-      collegeName: "CQU",
+      collegeName: "Harvard",
       start: "2022",
       end: "2023",
     },
     {
       degreeName: "Master of Information Technology",
-      collegeName: "CQU",
+      collegeName: "Monash",
       start: "2022",
       end: "2023",
     },
@@ -25,7 +25,7 @@ const initialResumeData: Resume = {
   experience: [
     {
       position: "Software Lead",
-      company: "XKal PTY Ltd",
+      company: "XYZ PTY Ltd",
       start: "October 2022",
       end: "Nov 2023",
       workItems: [
@@ -38,7 +38,7 @@ const initialResumeData: Resume = {
     },
     {
       position: "Software Lead",
-      company: "XKal PTY Ltd",
+      company: "Apple Inc.",
       start: "October 2022",
       end: "Nov 2023",
       workItems: [
@@ -51,10 +51,10 @@ const initialResumeData: Resume = {
     },
   ],
   contact: {
-    phone: "0460852781",
+    phone: "0453334344",
     address: "Melbourne",
-    email: "sudosuwal@gmail.com",
-    website: "www.google.com",
+    email: "xyz@gmail.com",
+    website: "https://www.google.com",
   },
   titles: {
     profile: "PROFILE",

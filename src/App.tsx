@@ -9,7 +9,7 @@ import ResumeGeneratorPage from "./features/resume_generator";
 function App() {
   return (
     <div className="app">
-      <Navbar />
+      {/* <Navbar /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing_pages />} />

@@ -5,6 +5,7 @@ import React from "react";
 const useCreateBuyLink = (type: ExportType) => {
   const PO = process.env.REACT_APP_STRIPE_PRODUCT_PO;
   const INV = process.env.REACT_APP_STRIPE_PRODUCT_INV;
+  const RESUME = process.env.REACT_APP_STRIPE_PRODUCT_RESUME;
 
   const [url, setUrl] = useState(INV);
 
@@ -13,6 +14,8 @@ const useCreateBuyLink = (type: ExportType) => {
       setUrl(INV);
     } else if (type == "PurchaseOrder") {
       setUrl(PO);
+    } else {
+      setUrl(RESUME)
     }
   }, [type]);
 

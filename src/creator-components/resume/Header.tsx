@@ -48,7 +48,7 @@ const Header = ({
       {/* @ts-ignore */}
       <HStack pdfMode={pdfMode} style={{ padding: "40px 40px" }}>
         {/* @ts-ignore */}
-        <View pdfMode={pdfMode} style={{ width: "80%" }}>
+        <View pdfMode={pdfMode} style={{ width: "100%" }}>
           <View className="w-100" pdfMode={pdfMode}>
             {/* @ts-ignore */}
             <EditableInput

@@ -51,7 +51,7 @@ const Export = ({ invoice, po, resume, type, theme = theme1 }: ExportProps) => {
     const blob = await ReactPDF.pdf(getDoc()).toBlob();
     const url = URL.createObjectURL(blob);
     if (url && url.length > 0) {
-      triggerDownload(url, "invoice.pdf");
+      triggerDownload(url, `${type}.pdf`);
     }
   };
 
