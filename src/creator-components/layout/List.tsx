@@ -4,14 +4,18 @@ import React, { ReactNode, useEffect, useState } from "react";
 import HStack from "./HStack";
 import EditableInput from "../EditableInput";
 
+
 type ListProps = {
   pdfMode?: boolean;
   title: string;
   items: string[];
   onChange?: (items: string[]) => void;
+  properties?: {
+    showBullets: boolean
+  }
 };
 
-const List = ({ items, pdfMode, title, onChange }: ListProps) => {
+const List = ({ items, pdfMode, title, onChange, properties={'showBullets': true} }: ListProps) => {
   const [data, setData] = useState(items);
 
   const handleAdd = () => {
@@ -36,10 +40,13 @@ const List = ({ items, pdfMode, title, onChange }: ListProps) => {
       {data.map((item: string, index) => (
         // @ts-ignore
         <HStack pdfMode={pdfMode} key={index} crossAxisAlignment="center">
-          {/* @ts-ignore */}
-          <Text pdfMode={pdfMode} style={{ width: "auto" }}>
+          
+          {
+            // @ts-ignore
+            properties.showBullets && <Text pdfMode={pdfMode} style={{ width: "auto" }}>
             •
           </Text>
+          }
           <EditableInput
             placeholder="Add item"
             pdfMode={pdfMode}

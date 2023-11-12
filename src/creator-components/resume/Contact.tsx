@@ -61,6 +61,7 @@ const Contact = ({
       >
         <Img pdfMode={pdfMode} src={emailImage} />
         <EditableInput
+        placeholder="Email"
           pdfMode={pdfMode}
           value={customContact.email}
           onChange={(value) => {
@@ -79,6 +80,7 @@ const Contact = ({
       >
         <Img pdfMode={pdfMode} src={phoneImage} />
         <EditableInput
+        placeholder="Phone"
           pdfMode={pdfMode}
           value={customContact.phone}
           onChange={(value) => {
@@ -97,6 +99,7 @@ const Contact = ({
       >
         <Img pdfMode={pdfMode} src={locationImage} />
         <EditableInput
+        placeholder="Address"
           pdfMode={pdfMode}
           value={customContact.address}
           onChange={(value) => {
@@ -115,6 +118,7 @@ const Contact = ({
       >
         <Img pdfMode={pdfMode} src={websiteImage} />
         <EditableInput
+        placeholder="Website"
           pdfMode={pdfMode}
           value={customContact.website}
           onChange={(value) => {

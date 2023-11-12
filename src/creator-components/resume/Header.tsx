@@ -52,6 +52,7 @@ const Header = ({
           <View className="w-100" pdfMode={pdfMode}>
             {/* @ts-ignore */}
             <EditableInput
+            placeholder="Fullname"
               pdfMode={pdfMode}
               value={fullname}
               onChange={(value) => {
@@ -65,6 +66,7 @@ const Header = ({
           </View>
           <View className="w-100" pdfMode={pdfMode}>
             <EditableInput
+            placeholder="Your position"
               pdfMode={pdfMode}
               value={designation}
               onChange={(value) => {

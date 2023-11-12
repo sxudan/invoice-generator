@@ -64,7 +64,7 @@ const ResumeBuilder = ({
 
   return (
     <Document pdfMode={pdfMode}>
-      <Page className="wrapper-base" pdfMode={pdfMode}>
+      <Page className="invoice-wrapper" varient={'V1'} pdfMode={pdfMode}>
         <Header
           // @ts-ignore
           styles={{ backgroundColor: "#F5F5F5" }}
@@ -183,7 +183,7 @@ const ResumeBuilder = ({
         </View>
 
         {!premium && (
-          <View className="watermark center mt-40" pdfMode={pdfMode}>
+          <View className="watermark center mt-40 pb-10" pdfMode={pdfMode}>
             <Text pdfMode={pdfMode}>Powered by InvoiceXYZ</Text>
           </View>
         )}

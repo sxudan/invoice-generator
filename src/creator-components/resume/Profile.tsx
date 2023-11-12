@@ -40,6 +40,7 @@ const Profile = ({
       />
       <Spacer pdfMode={pdfMode} h="8px" />
       <EditableTextarea
+        placeholder="Describe about yourself..."
         pdfMode={pdfMode}
         value={description}
         onChange={(value) => {
